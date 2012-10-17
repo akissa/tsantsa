@@ -45,8 +45,8 @@ def find_version(*file_paths):
 setup(
     name='tsantsa',
     version=find_version('tsantsa', '__init__.py'),
-    description='Tsantsa CSS, JS minification and SCSS compilation commands for setuptools',
-    long_description=read('README'),
+    description='Tsantsa: CSS, JS minification and SCSS compilation commands for setuptools',
+    long_description=read('README.rst'),
     author='Andrew Colin Kissa',
     author_email='andrew@topdog.za.net',
     url='http://www.topdog.za.net/tsantsa',
