@@ -1,0 +1,5 @@
+[distutils.commands]
+compile_scss = tsantsa.scss_compiler:compile_scss
+tsantsa_css = tsantsa.minifer:tsantsa_css
+tsantsa_js = tsantsa.minifer:tsantsa_js
+

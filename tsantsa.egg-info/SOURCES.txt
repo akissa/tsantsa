@@ -1,0 +1,15 @@
+CHANGELOG
+LICENSE
+MANIFEST.in
+README
+setup.cfg
+setup.py
+tsantsa/__init__.py
+tsantsa/minifer.py
+tsantsa/scss_compiler.py
+tsantsa.egg-info/PKG-INFO
+tsantsa.egg-info/SOURCES.txt
+tsantsa.egg-info/dependency_links.txt
+tsantsa.egg-info/entry_points.txt
+tsantsa.egg-info/requires.txt
+tsantsa.egg-info/top_level.txt
