@@ -2,7 +2,7 @@
 Tsantsa
 =======
 
-Tsantsa provides distutils/setuptools commands for minifying CSS and JS resources and
+Tsantsa provides setuptools commands for minifying CSS and JS resources and
 compilation of SCSS resources to CSS using `cssmin`_, `slimit`_ and `scss`_.
 
 scss, cssmin and slimit are pure Python packages and do not require any external commands.
