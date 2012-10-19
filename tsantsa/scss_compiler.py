@@ -10,7 +10,8 @@ Tsantsa - SCSS compliation plugin for setup tools
 
 import os
 
-from scss import parser
+import scss
+
 from tsantsa import TsantsaBaseCmd, remove_duplicates
 
 
@@ -20,7 +21,16 @@ class ScssCompileCmd(TsantsaBaseCmd):
     user_options = [
         ('sources=', None, 'sources files'),
         ('output=', None, 'compiled css output file'),
+        ('loadpaths=', None, 'paths pyScss will look ".scss" files in '
+                             'This can be the path to the compass '
+                             'framework or blueprint or compass-recepies'
+                             ', etc'),
     ]
+
+    def initialize_options(self):
+        """init options"""
+        TsantsaBaseCmd.initialize_options(self)
+        self.loadpaths = []
 
     def finalize_options(self):
         """finalize options"""
@@ -32,6 +42,12 @@ class ScssCompileCmd(TsantsaBaseCmd):
         if self.sources:
             self.sources = remove_duplicates(clean_path(path)
                             for path in self._files_list(self.sources))
+        self.ensure_string_list('loadpaths')
+        if self.loadpaths:
+            self.loadpaths = remove_duplicates(clean_path(path)
+                            for path in self._files_list(self.loadpaths)
+                            if os.path.isdir(clean_path(path)) and
+                            not clean_path(path) is None )
 
     def _compile(self, sources, output):
         """Run a compilation operation on the sources"""
@@ -42,8 +58,10 @@ class ScssCompileCmd(TsantsaBaseCmd):
                 self._combine_files(sources, combined_filename)
                 input_file = combined_filename
 
+            scss.LOAD_PATHS = self.loadpaths
+            parser = scss.Scss(scss_opts = {'compress_reverse_colors': False})
             with open(output, mode='wb') as out:
-                out.write(parser.parse(open(input_file, mode='rb').read()))
+                out.write(parser.compile(open(input_file, mode='rb').read()))
         finally:
             if ('combined_filename' in locals() and
                 os.path.exists(combined_filename)):
@@ -84,6 +102,6 @@ class ScssCompileCmd(TsantsaBaseCmd):
 
 
 class compile_scss(ScssCompileCmd):
-    """Compile SCSS using scss"""
+    """Compile SCSS using pyScss"""
     description = """Compile SCSS to css"""
 

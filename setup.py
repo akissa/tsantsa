@@ -17,7 +17,7 @@ except ImportError:
 required_packages = [
         "slimit",
         "cssmin",
-        "scss",
+        "pyScss",
     ]
 
 

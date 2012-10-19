@@ -1,7 +1,7 @@
 CHANGELOG
 LICENSE
 MANIFEST.in
-README
+README.rst
 setup.cfg
 setup.py
 tsantsa/__init__.py

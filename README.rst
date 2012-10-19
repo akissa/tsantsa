@@ -3,7 +3,7 @@ Tsantsa
 =======
 
 Tsantsa provides setuptools commands for minifying CSS and JS resources and
-compilation of SCSS resources to CSS using `cssmin`_, `slimit`_ and `scss`_.
+compilation of SCSS resources to CSS using `cssmin`_, `slimit`_ and `pyScss`_.
 
 scss, cssmin and slimit are pure Python packages and do not require any external commands.
 
@@ -21,7 +21,7 @@ See the Usage_ section for more information about these commands.
 .. _`YUI compressor`: http://developer.yahoo.com/yui/compressor/
 .. _`cssmin`: https://github.com/zacharyvoase/cssmin
 .. _`slimit`: http://slimit.org/
-.. _`scss`: http://packages.python.org/scss/
+.. _`pyScss`: https://github.com/Kronuz/pyScss
 
 Installation
 ============
@@ -196,8 +196,10 @@ And here is the result::
 	  --no-user-cfg   ignore pydistutils.cfg in your home directory
 
 	Options for 'compile_scss' command:
-	  --sources  sources files
-	  --output   compiled css output file
+	  --sources    sources files
+	  --output     compiled css output file
+	  --loadpaths  paths pyScss will look ".scss" files in This can be the path to
+	               the compass framework or blueprint or compass-recepies, etc
 
 	usage: setup.py [global_opts] cmd1 [cmd1_opts] [cmd2 [cmd2_opts] ...]
 	   or: setup.py --help [cmd1 cmd2 ...]

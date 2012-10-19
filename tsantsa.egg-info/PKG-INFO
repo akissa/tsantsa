@@ -1,7 +1,7 @@
 Metadata-Version: 1.0
 Name: tsantsa
 Version: 0.0.1
-Summary: Tsantsa CSS and JS minification commands for setuptools
+Summary: Tsantsa: CSS, JS minification and SCSS compilation commands for setuptools
 Home-page: http://www.topdog.za.net/tsantsa
 Author: Andrew Colin Kissa
 Author-email: andrew@topdog.za.net
@@ -10,8 +10,8 @@ Description: =======
         Tsantsa
         =======
         
-        Tsantsa provides distutils/setuptools commands for minifying CSS and JS resources and
-        compilation of SCSS resources to CSS using `cssmin`_, `slimit`_ and `scss`_.
+        Tsantsa provides setuptools commands for minifying CSS and JS resources and
+        compilation of SCSS resources to CSS using `cssmin`_, `slimit`_ and `pyScss`_.
         
         scss, cssmin and slimit are pure Python packages and do not require any external commands.
         
@@ -29,7 +29,7 @@ Description: =======
         .. _`YUI compressor`: http://developer.yahoo.com/yui/compressor/
         .. _`cssmin`: https://github.com/zacharyvoase/cssmin
         .. _`slimit`: http://slimit.org/
-        .. _`scss`: http://packages.python.org/scss/
+        .. _`pyScss`: https://github.com/Kronuz/pyScss
         
         Installation
         ============
@@ -188,6 +188,29 @@ Description: =======
         You can also see the options of the ``compile_scss`` command, by typing::
         
             $ python setup.py compile_scss --help
+        
+        And here is the result::
+        
+        	Common commands: (see '--help-commands' for more)
+        
+        	  setup.py build      will build the package underneath 'build/'
+        	  setup.py install    will install the package
+        
+        	Global options:
+        	  --verbose (-v)  run verbosely (default)
+        	  --quiet (-q)    run quietly (turns verbosity off)
+        	  --dry-run (-n)  don't actually do anything
+        	  --help (-h)     show detailed help message
+        	  --no-user-cfg   ignore pydistutils.cfg in your home directory
+        
+        	Options for 'compile_scss' command:
+        	  --sources  sources files
+        	  --output   compiled css output file
+        
+        	usage: setup.py [global_opts] cmd1 [cmd1_opts] [cmd2 [cmd2_opts] ...]
+        	   or: setup.py --help [cmd1 cmd2 ...]
+        	   or: setup.py --help-commands
+        	   or: setup.py cmd --help
         
         Support
         =======
